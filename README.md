@@ -1,27 +1,44 @@
-#Credits: whoscored.com
+# Football Web Scraper
 
-# Football Match Data Web Scraper
+This project is a Python-based web scraper designed to collect detailed football match events data from websites like WhoScored. The scraper automates the process of extracting key football match statistics and stores the data into a Supabase PostgreSQL database for further analysis and visualization.
 
-This project is designed to scrape and process detailed football match data from Whoscored.com and store it in a Supabase database for further analysis.
+## Features
+- **Automated Scraping**: Scrapes football match events, including xG, possession, player, and team statistics.
+- **Data Handling**: Utilizes BeautifulSoup for HTML parsing and Selenium for navigating dynamic content on the web.
+- **Supabase Integration**: Data is automatically stored in a PostgreSQL database hosted on Supabase, making it easily accessible for further analysis.
+- **Efficient Data Storage**: Uses Pandas and Pydantic models to structure, validate, and store match events.
 
-## Features:
+## Technologies Used
+- **Python**: Core language for writing the scraping scripts.
+- **BeautifulSoup**: Used for parsing HTML content from the websites.
+- **Selenium**: Automates the browser to interact with dynamic web pages and handle JavaScript content.
+- **Pandas**: For data structuring and manipulation.
+- **Pydantic**: Used to ensure data models are validated before storage.
+- **Supabase**: Cloud-based PostgreSQL database for data storage and retrieval.
 
-- **Automated Data Pipeline**:
-  - Leverages **Selenium** and **BeautifulSoup** for automated data extraction.
-  - Retrieves over 10,000 football match events weekly, improving data processing efficiency by 30%.
-  
-- **Data Modeling**:
-  - Uses **Pydantic models** for structured and type-safe data validation.
-  
-- **Database Integration**:
-  - Connects to a **Supabase** (PostgreSQL) database using **psycopg2** for secure and scalable storage of football match events.
+## How to Run the Project
+1. Clone the repository:
+    ```bash
+    git clone <repository-url>
+    ```
+2. Install the required Python libraries:
+    ```bash
+    pip install -r requirements.txt
+    ```
+3. Ensure you have a valid `.env` file for your Supabase credentials:
+    ```env
+    project_url=<your-supabase-url>
+    project_api=<your-supabase-api-key>
+    supabase_password=<your-supabase-password>
+    ```
+4. Run the script to start scraping match events:
+    ```bash
+    python scraper.py
+    ```
 
-- **Data Storage**:
-  - Each match event is stored with attributes like team ID, player ID, coordinates, event type, outcomes, and more.
+## Credits
+- Data sourced from [WhoScored](https://www.whoscored.com) and stored in [Supabase](https://supabase.com).
 
-## Tech Stack:
-- **Python**: Core language for scripting and automation.
-- **Selenium & BeautifulSoup**: For web scraping.
-- **Pandas**: For data manipulation and processing.
-- **Supabase & PostgreSQL**: As the database solution.
-- **Pydantic**: For data modeling and validation.
+---
+
+Feel free to contribute or raise issues for improvements.
